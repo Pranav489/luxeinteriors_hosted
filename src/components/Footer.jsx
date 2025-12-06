@@ -80,7 +80,7 @@ const Footer = () => {
             <img
               src={navlogo}
               alt="Capital Bedrooms Logo"
-              className="w-32 sm:w-36 md:w-40 lg:w-44 mb-4"
+              className="mb-6 w-40"
             />
             <p className="text-sm sm:text-base text-[#3F4A2E] mt-2 hidden md:block">
               Creating beautiful, functional interiors that transform your space.

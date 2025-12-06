@@ -327,8 +327,8 @@ const Navbar = ({ categories }) => {
     email: "",
     phone: "",
     message: "",
-    postcode: "", 
-    best_time_to_reach: "", 
+    postcode: "", // New field
+    best_time_to_reach: "", // New field
     preferred_date: "",
     preferred_time: "",
     address: "",
@@ -566,8 +566,8 @@ const Navbar = ({ categories }) => {
             >
               <img
                 src={navlogo}
-                alt="Luxe Interiors"
-                className="h-24 w-auto"
+                alt="Capital Bedrooms"
+                className="h-10 w-auto"
               />
             </div>
 

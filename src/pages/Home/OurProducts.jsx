@@ -210,7 +210,6 @@ const ContactFormPopup = ({
             </div>
 
             {/* Submit Button */}
-            {/* Submit Button */}
             <div className="flex-shrink-0 pt-3 sm:pt-4 space-y-2 sm:space-y-3">
               <button
                 type="submit"
@@ -356,8 +355,7 @@ const ProductCard = ({ product, onClick, onEnquireNow, categoryMap }) => {
 
       {/* Content Area */}
       <div className="p-6">
-        {/* Category Badge - Now in content area and clickable */}
-        {product.category?.name && (
+        {/* {product.category?.name && (
           <button
             onClick={(e) => handleCategoryClick(e, product.category.name)}
             className="inline-flex items-center gap-2 mb-3 px-3 py-1.5 rounded-full bg-[#E8EBDF] hover:bg-[#D4CBB3] border border-[#ADB79C] text-[#3F4A2E] hover:text-[#7D8570] transition-all duration-200 group/category cursor-pointer"
@@ -380,7 +378,7 @@ const ProductCard = ({ product, onClick, onEnquireNow, categoryMap }) => {
               />
             </svg>
           </button>
-        )}
+        )} */}
 
         <h3 className="text-xl font-bold text-[#3F4A2E] mb-3 line-clamp-2 group-hover:text-[#7D8570] transition-colors">
           {product?.title}
@@ -580,9 +578,6 @@ const OurProducts = () => {
   };
 
   // Handle contact form submission with validation and double submission prevention
-  // Handle contact form submission with validation and double submission prevention
-  // Handle contact form submission with validation and double submission prevention
-  // Handle contact form submission with validation and double submission prevention
   const handleContactFormSubmit = async (e) => {
     e.preventDefault();
 
@@ -649,15 +644,6 @@ const OurProducts = () => {
     }
   };
 
-  // Prevent multiple clicks on the same button
-  const debouncedSubmit = React.useCallback(
-    (e) => {
-      handleContactFormSubmit(e);
-    },
-    [isContactSubmitting]
-  );
-
-  // Close contact form with double submission check
   // Close contact form with double submission check
   const closeContactForm = () => {
     if (!isContactSubmitting && !isSubmittingRef.current) {
@@ -827,81 +813,8 @@ const OurProducts = () => {
           </p>
         </motion.div>
 
-        {/* Desktop Filter Bar */}
-        <motion.div
-          className="hidden md:flex flex-wrap justify-center gap-3 mb-10"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.4 }}
-        >
-          {["All Products", ...categories.map((cat) => cat.name)].map(
-            (category) => (
-              <button
-                key={category}
-                onClick={() => setActiveFilter(category)}
-                className={`flex items-center gap-2 px-4 py-2 rounded-full transition-all ${
-                  activeFilter === category
-                    ? "bg-[#ADB79C] text-white shadow-md"
-                    : "bg-[#E8EBDF] text-[#3F4A2E] hover:bg-[#D4CBB3]"
-                }`}
-              >
-                {category}
-              </button>
-            )
-          )}
-        </motion.div>
-
-        {/* Mobile Filter */}
-        <div className="md:hidden mb-6 relative">
-          <button
-            onClick={() => setShowMobileFilters(!showMobileFilters)}
-            className="flex items-center justify-between w-full max-w-xs mx-auto bg-[#ADB79C] text-white px-5 py-3 rounded-full shadow"
-          >
-            <div className="flex items-center gap-2">
-              <FiFilter />
-              <span>
-                {activeFilter === "All" ? "All Categories" : activeFilter}
-              </span>
-            </div>
-            <FiChevronDown
-              className={`transition-transform ${
-                showMobileFilters ? "rotate-180" : ""
-              }`}
-            />
-          </button>
-
-          {/* Mobile Dropdown */}
-          {showMobileFilters && (
-            <motion.div
-              className="absolute z-10 w-full max-w-xs mx-auto mt-2 bg-white rounded-lg shadow-xl overflow-hidden border border-[#E8EBDF]"
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ type: "spring", damping: 25 }}
-            >
-              {["All Categories", ...categories.map((cat) => cat.name)].map(
-                (category) => (
-                  <button
-                    key={category}
-                    onClick={() => {
-                      setActiveFilter(category);
-                      setShowMobileFilters(false);
-                    }}
-                    className={`flex items-center gap-3 w-full px-4 py-3 text-left ${
-                      activeFilter === category
-                        ? "bg-[#E8EBDF] text-[#3F4A2E]"
-                        : "hover:bg-[#F8F9F5]"
-                    }`}
-                  >
-                    <span>{category}</span>
-                  </button>
-                )
-              )}
-            </motion.div>
-          )}
-        </div>
-
-        {/* Product Grid with improved UI */}
+        
+        {/* Product Grid */}
         <motion.div
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8"
           initial="hidden"
@@ -935,7 +848,7 @@ const OurProducts = () => {
             animate={{ opacity: 1 }}
           >
             <p className="text-[#7D8570] text-lg">
-              No products found in this category.
+              No products found.
             </p>
             <button
               onClick={() => setActiveFilter("All")}
@@ -974,14 +887,6 @@ const OurProducts = () => {
 
               <div className="p-4 sm:p-6">
                 {/* Header Section - Compact */}
-                <div className="flex items-center gap-2 mb-2">
-                  <span className="text-lg">
-                    {selectedProduct.category?.icon}
-                  </span>
-                  <span className="text-xs font-medium text-[#3F4A2E]">
-                    {selectedProduct.category?.name}
-                  </span>
-                </div>
                 <h3 className="text-xl font-bold text-[#3F4A2E] mb-2">
                   {selectedProduct.title}
                 </h3>
@@ -989,7 +894,6 @@ const OurProducts = () => {
                   {selectedProduct.description}
                 </p>
 
-                {/* Enhanced Media Gallery - Natural Size */}
                 <div className="mb-4">
                   <h4 className="font-semibold text-[#3F4A2E] mb-3 text-base">
                     Product Gallery
@@ -1020,8 +924,6 @@ const OurProducts = () => {
                           }
                           className="max-w-full max-h-[70vh] object-contain"
                           onLoad={(e) => {
-                            // The image will naturally determine its size
-                            // Container will adapt to it
                           }}
                         />
                       )
@@ -1099,53 +1001,6 @@ const OurProducts = () => {
                       ))}
                     </div>
                   )}
-                </div>
-
-                {/* Specifications and Features - Compact Layout */}
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 mb-4 max-w-4xl">
-                  {selectedProduct.specifications &&
-                    typeof selectedProduct.specifications === "string" && (
-                      <div>
-                        <h4 className="font-semibold text-[#3F4A2E] mb-2 text-sm">
-                          Specifications
-                        </h4>
-                        <ul className="text-[#7D8570] space-y-1 text-xs">
-                          {selectedProduct.specifications
-                            .split("\n")
-                            .filter((spec) => spec.trim() !== "")
-                            .map((spec, i) => (
-                              <li key={i} className="flex items-start">
-                                <span className="text-[#ADB79C] mr-2 mt-0.5 flex-shrink-0">
-                                  •
-                                </span>
-                                <span className="flex-1">{spec.trim()}</span>
-                              </li>
-                            ))}
-                        </ul>
-                      </div>
-                    )}
-
-                  {selectedProduct.features &&
-                    typeof selectedProduct.features === "string" && (
-                      <div>
-                        <h4 className="font-semibold text-[#3F4A2E] mb-2 text-sm">
-                          Features
-                        </h4>
-                        <ul className="text-[#7D8570] space-y-1 text-xs">
-                          {selectedProduct.features
-                            .split("\n")
-                            .filter((feature) => feature.trim() !== "")
-                            .map((feature, i) => (
-                              <li key={i} className="flex items-start">
-                                <span className="text-[#ADB79C] mr-2 mt-0.5 flex-shrink-0">
-                                  •
-                                </span>
-                                <span className="flex-1">{feature.trim()}</span>
-                              </li>
-                            ))}
-                        </ul>
-                      </div>
-                    )}
                 </div>
 
                 {/* Action Button */}

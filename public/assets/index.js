@@ -1,4 +1,4 @@
-import navlogo from "./nav/luxeinteriors_logo.jpg";
+import navlogo from "./nav/luxeinteriors_logo.png";
 import awardVideo1 from "./videos/award1.mp4";
 import awardVideo2 from "./videos/award2.mp4";
 import awardImg1 from "./videos/awardImg1.jpeg";
